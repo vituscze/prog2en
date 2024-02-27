@@ -146,20 +146,20 @@ namespace ConsoleApp
     // Last Digits //
     //
     // Write a program that computes and prints the last 5 digits of the integer 2^1000.
-    static int LastDigits()
+    static long LastDigits()
     {
-      int n = 2;
-      int exp = 1000;
-      int result = 1;
+      long n = 2;
+      long exp = 1000;
+      long result = 1;
 
       while (exp > 0)
       {
         if (exp % 2 == 1)
         {
-          result = (result * n) % 10000;
+          result = (result * n) % 100000;
         }
 
-        n = (n * n) % 10000;
+        n = (n * n) % 100000;
         exp /= 2;
       }
 
