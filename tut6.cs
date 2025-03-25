@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 
 namespace Tutorial
@@ -125,164 +126,164 @@ namespace Tutorial
     // Binary Tree //
     class TreeSet<T> where T : IComparable<T>
     {
-        private class Node
-        {
+      private class Node
+      {
         public T Value;
         public Node? Left;
         public Node? Right;
 
         public Node(T value) => Value = value;
-        }
+      }
 
-        private Node? root;
+      private Node? root;
 
-        public bool Contains(T x)
-        {
+      public bool Contains(T x)
+      {
         Node? n = root;
         while (n != null)
         {
-            int c = x.CompareTo(n.Value);
-            if (c == 0)
-            {
+          int c = x.CompareTo(n.Value);
+          if (c == 0)
+          {
             return true;
-            }
-            else if (c < 0)
-            {
+          }
+          else if (c < 0)
+          {
             n = n.Left;
-            }
-            else
-            {
+          }
+          else
+          {
             n = n.Right;
-            }
+          }
         }
         return false;
-        }
+      }
 
-        // a) Write an insert() method, giving it an appropriate type.
-        public void Insert(T x)
-        {
+      // a) Write an insert() method, giving it an appropriate type.
+      public void Insert(T x)
+      {
         if (root == null)
         {
-            root = new(x);
-            return;
+          root = new(x);
+          return;
         }
 
         Node n = root;
         while (true)
         {
-            int c = x.CompareTo(n.Value);
-            if (c == 0)
-            {
+          int c = x.CompareTo(n.Value);
+          if (c == 0)
+          {
             return;
-            }
-            else if (c < 0)
-            {
+          }
+          else if (c < 0)
+          {
             if (n.Left == null)
             {
-                n.Left = new(x);
-                return;
+              n.Left = new(x);
+              return;
             }
             else
             {
-                n = n.Left;
+              n = n.Left;
             }
-            }
-            else
-            {
+          }
+          else
+          {
             if (n.Right == null)
             {
-                n.Right = new(x);
-                return;
+              n.Right = new(x);
+              return;
             }
             else
             {
-                n = n.Right;
+              n = n.Right;
             }
-            }
+          }
         }
-        }
+      }
 
-        // b) Add a constructor TreeSet(T[] a) that builds a TreeSet from an array a.
-        //    The resulting tree should be balanced. Do not modify the array.
-        public TreeSet(T[] a)
-        {
+      // b) Add a constructor TreeSet(T[] a) that builds a TreeSet from an array a.
+      //    The resulting tree should be balanced. Do not modify the array.
+      public TreeSet(T[] a)
+      {
         List<T> values = new(a);
         values.Sort();
 
         Node? go(int from, int to)
         {
-            if (from > to)
-            {
+          if (from > to)
+          {
             return null;
-            }
-            int mid = from + (to - from) / 2;
-            Node? n = new(values[mid]);
-            n.Left = go(from, mid - 1);
-            n.Right = go(mid + 1, to);
-            return n;
+          }
+          int mid = from + (to - from) / 2;
+          Node? n = new(values[mid]);
+          n.Left = go(from, mid - 1);
+          n.Right = go(mid + 1, to);
+          return n;
         }
 
         root = go(0, values.Count - 1);
-        }
+      }
 
-        // c) Add a method T[] range(T a, T b) that returns a sorted array of all
-        //    values x such that a ≤ x ≤ b.
-        public T[] Range(T a, T b)
-        {
+      // c) Add a method T[] range(T a, T b) that returns a sorted array of all
+      //    values x such that a ≤ x ≤ b.
+      public T[] Range(T a, T b)
+      {
         List<T> result = new();
 
         void go(Node? n)
         {
-            if (n == null)
-            {
+          if (n == null)
+          {
             return;
-            }
+          }
 
-            int l = a.CompareTo(n.Value);
-            int r = n.Value.CompareTo(b);
+          int l = a.CompareTo(n.Value);
+          int r = n.Value.CompareTo(b);
 
-            if (l < 0) // a < n.Value
-            {
+          if (l < 0) // a < n.Value
+          {
             go(n.Left);
-            }
-            if (l <= 0 && r <= 0) // a <= n.Value <= b
-            {
+          }
+          if (l <= 0 && r <= 0) // a <= n.Value <= b
+          {
             result.Add(n.Value);
-            }
-            if (r < 0) // n.Value < b
-            {
+          }
+          if (r < 0) // n.Value < b
+          {
             go(n.Right);
-            }
+          }
         }
 
         go(root);
         return result.ToArray();
-        }
+      }
 
-        // d) Add a method void validate() that verifies that the structure satisfies
-        //    the ordering requirements of a binary tree. If the structure is invalid,
-        //    throw an exception with the message "invalid".
-        public void Validate()
-        {
+      // d) Add a method void validate() that verifies that the structure satisfies
+      //    the ordering requirements of a binary tree. If the structure is invalid,
+      //    throw an exception with the message "invalid".
+      public void Validate()
+      {
         void go(Node? n, Node? low, Node? high)
         {
-            if (n == null)
-            {
+          if (n == null)
+          {
             return;
-            }
+          }
 
-            bool ok = (low == null || low.Value.CompareTo(n.Value) < 0) && (high == null || n.Value.CompareTo(high.Value) < 0);
-            if (!ok)
-            {
+          bool ok = (low == null || low.Value.CompareTo(n.Value) < 0) && (high == null || n.Value.CompareTo(high.Value) < 0);
+          if (!ok)
+          {
             throw new Exception("invalid");
-            }
+          }
 
-            go(n.Left, low, n);
-            go(n.Right, n, high);
+          go(n.Left, low, n);
+          go(n.Right, n, high);
         }
 
         go(root, null, null);
-        }
+      }
     }
 
     // Filter //
