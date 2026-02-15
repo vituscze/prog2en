@@ -1,6 +1,6 @@
 # Programming 2 (NPRG031) Tutorials
 
-Tutorials happen every Tuesday (10:40 in N10 and 12:20 in N11).
+Tutorials happen every Monday (15:40 and 17:20, both in N11).
 
 # Useful Links
 
@@ -27,13 +27,13 @@ Homework is submitted via ReCodEx (see above). To pass the tutorials, your homew
 
 ## Semestral Project
 
-For your semestral project, you will choose and solve a nontrivial programming task. Students typically implement some interesting algorithm, write a computer game or a command line tool. Before you start working on your project, I'll first need to approve the topic to make sure it's not too easy (or too hard). Send me a short description and specification of your project and wait for me to approve it before you start writing code.
+For your semestral project, you will choose and solve a nontrivial programming task. Students typically implement some interesting algorithm, write a computer game or a command line tool. Before you start working on your project, I'll first need to approve the topic to make sure it's not too easy (or too hard). Submit a short description of your project via ReCodEx and wait for me to approve it before you start writing code.
 
-Deadlines for proposals and submissions can be found [here](https://ksvi.mff.cuni.cz/~dingle/2024-5/prog_2/programming_2.html). To submit your project, you need to provide the following:
+Deadlines for proposals and submissions can be found [here](https://ksvi.mff.cuni.cz/~dingle/2025-6/prog_2/programming_2.html). To submit your project, you need to provide the following:
 
 * **Implementation** - source code
 * **Test data** - sample inputs and outputs, if applicable
 * **User documentation** - how to use your program; can be a sufficiently detailed README or a separate document (PDF, webpage, etc)
 * **Developer documentation** - how your program works; for Programming 2 projects, adding reasonable documentation comments (see [C# reference](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/xmldoc/)) into your code is more than enough
 
-Once you have all that, simply send me an email and if everything is alright, we will meet up (online or in person) and you'll present your project to me. Note that there's usually about a week between submission and presentation, so plan accordingly.
+Since you'll also be learning about Git, I'd strongly encourage everyone to make a Git repository for their projects (GitHub or our university's GitLab are fine). Once you have all that, simply send me an email and if everything is alright, we will meet up (online or in person) and you'll present your project to me. Note that there's usually about a week between submission and presentation, so plan accordingly.
