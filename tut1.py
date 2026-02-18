@@ -1,4 +1,4 @@
-# Programming 2 Tutorial //
+# Programming 2 Tutorial #
 
 # How to pass the tutorial
 #
@@ -12,7 +12,7 @@
 # * Semestral project
 #   - Solve a nontrivial problem in C#
 #   - Can be implementation of an algorithm, a computer game, etc
-#   - Before you start working, submit a proposal via email and wait for confirmation
+#   - Before you start working, submit a proposal and wait for confirmation
 #     * Description of the problem and specification of the solution
 #     * Doesn't have to be long, 1-2 paragraphs is usually enough
 #     * Submit via ReCodEx
